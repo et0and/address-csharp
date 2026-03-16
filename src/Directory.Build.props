@@ -6,7 +6,7 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <Copyright>Copyright 2026 Address</Copyright>
     <PackageProjectUrl>https://address.tom.so/docs</PackageProjectUrl>
-    <RepositoryUrl>https://www.github.com/stainless-sdks/address-csharp</RepositoryUrl>
+    <RepositoryUrl>https://www.github.com/et0and/address-csharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
 
     <!-- Documentation-->
