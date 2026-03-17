@@ -120,7 +120,7 @@ public interface IAddressClientWithRawResponse : IDisposable
     IMetaServiceWithRawResponse Meta { get; }
 
     /// <summary>
-    /// Returns a raw HTTP response for `get /`, but is otherwise the
+    /// Returns a raw HTTP response for <c>get /</c>, but is otherwise the
     /// same as <see cref="IAddressClient.GetApiInfo(ClientGetApiInfoParams?, CancellationToken)"/>.
     /// </summary>
     Task<HttpResponse<ClientGetApiInfoResponse>> GetApiInfo(

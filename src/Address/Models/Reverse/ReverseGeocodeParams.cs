@@ -18,7 +18,7 @@ namespace Address.Models.Reverse;
 /// <para>**Distance calculation:** Results are sorted by distance from the provided
 /// coordinates, calculated using the Haversine formula for spherical distance on Earth.</para>
 ///
-/// <para>**Example:** `/v1/reverse?lat=-41.2865&lng=174.7762&limit=5`</para>
+/// <para>**Example:** `/v1/reverse?lat=-41.2865&amp;lng=174.7762&amp;limit=5`</para>
 ///
 /// <para>NOTE: Do not inherit from this type outside the SDK unless you're okay with
 /// breaking changes in non-major versions. We may add new methods in the future that
@@ -101,7 +101,7 @@ public record class ReverseGeocodeParams : ParamsBase
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="IFromRawJson.FromRawUnchecked"/>
+    /// <inheritdoc cref="IFromRawJson{T}.FromRawUnchecked"/>
     public static ReverseGeocodeParams FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
         IReadOnlyDictionary<string, JsonElement> rawQueryData

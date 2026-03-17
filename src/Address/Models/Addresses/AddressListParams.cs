@@ -19,7 +19,7 @@ namespace Address.Models.Addresses;
 /// <para>**Pagination:** - `limit`: Maximum number of results (default: 100, max:
 /// 1000) - `offset`: Number of results to skip</para>
 ///
-/// <para>**Example:** `/v1/addresses?town_city=Wellington&limit=50`</para>
+/// <para>**Example:** `/v1/addresses?town_city=Wellington&amp;limit=50`</para>
 ///
 /// <para>NOTE: Do not inherit from this type outside the SDK unless you're okay with
 /// breaking changes in non-major versions. We may add new methods in the future that
@@ -182,7 +182,7 @@ public record class AddressListParams : ParamsBase
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="IFromRawJson.FromRawUnchecked"/>
+    /// <inheritdoc cref="IFromRawJson{T}.FromRawUnchecked"/>
     public static AddressListParams FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
         IReadOnlyDictionary<string, JsonElement> rawQueryData

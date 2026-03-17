@@ -32,13 +32,13 @@ public interface IReverseService
     /// <summary>
     /// Find the nearest addresses to given geographic coordinates (reverse geocoding).
     ///
-    /// <para>**Query parameters:** - `lat`: Latitude in decimal degrees (required)
-    /// - `lng`: Longitude in decimal degrees (required) - `limit`: Maximum number
-    /// of results (default: 10, max: 100) - `format`: Response format - "full" or "simple"</para>
+    /// <para>**Query parameters:** - `lat`: Latitude in decimal degrees (required) -
+    /// `lng`: Longitude in decimal degrees (required) - `limit`: Maximum number of
+    /// results (default: 10, max: 100) - `format`: Response format - "full" or "simple"</para>
     ///
     /// <para>**Distance calculation:** Results are sorted by distance from the provided
-    /// coordinates, calculated using the Haversine formula for spherical distance
-    /// on Earth.</para>
+    /// coordinates, calculated using the Haversine formula for spherical distance on
+    /// Earth.</para>
     ///
     /// <para>**Example:** `/v1/reverse?lat=-41.2865&lng=174.7762&limit=5`</para>
     /// </summary>
@@ -62,7 +62,7 @@ public interface IReverseServiceWithRawResponse
     IReverseServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     /// <summary>
-    /// Returns a raw HTTP response for `get /v1/reverse`, but is otherwise the
+    /// Returns a raw HTTP response for <c>get /v1/reverse</c>, but is otherwise the
     /// same as <see cref="IReverseService.Geocode(ReverseGeocodeParams, CancellationToken)"/>.
     /// </summary>
     Task<HttpResponse<List<ReverseGeocodeResponse>>> Geocode(

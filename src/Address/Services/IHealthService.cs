@@ -53,7 +53,7 @@ public interface IHealthServiceWithRawResponse
     IHealthServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     /// <summary>
-    /// Returns a raw HTTP response for `get /health`, but is otherwise the
+    /// Returns a raw HTTP response for <c>get /health</c>, but is otherwise the
     /// same as <see cref="IHealthService.Check(HealthCheckParams?, CancellationToken)"/>.
     /// </summary>
     Task<HttpResponse<HealthCheckResponse>> Check(

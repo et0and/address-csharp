@@ -30,11 +30,11 @@ public interface IMetaService
 
     /// <summary>
     /// Returns metadata about the LINZ NZ Addresses dataset including: - Dataset
-    /// version identifier - Last ingestion timestamp - Total record count - Data
-    /// source information
+    /// version identifier - Last ingestion timestamp - Total record count - Data source
+    /// information
     ///
-    /// <para>This endpoint is useful for client applications that need to verify
-    /// data currency or display dataset attribution.</para>
+    /// <para>This endpoint is useful for client applications that need to verify data
+    /// currency or display dataset attribution.</para>
     /// </summary>
     Task<MetaRetrieveResponse> Retrieve(
         MetaRetrieveParams? parameters = null,
@@ -56,7 +56,7 @@ public interface IMetaServiceWithRawResponse
     IMetaServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     /// <summary>
-    /// Returns a raw HTTP response for `get /v1/meta`, but is otherwise the
+    /// Returns a raw HTTP response for <c>get /v1/meta</c>, but is otherwise the
     /// same as <see cref="IMetaService.Retrieve(MetaRetrieveParams?, CancellationToken)"/>.
     /// </summary>
     Task<HttpResponse<MetaRetrieveResponse>> Retrieve(
