@@ -32,9 +32,9 @@ public interface IAddressService
     /// <summary>
     /// Retrieve a single address record by its LINZ address_id.
     ///
-    /// <para>The address_id is a unique identifier assigned by Land Information
-    /// New Zealand (LINZ). This is the canonical way to retrieve a specific address
-    /// when you know its ID.</para>
+    /// <para>The address_id is a unique identifier assigned by Land Information New
+    /// Zealand (LINZ). This is the canonical way to retrieve a specific address when
+    /// you know its ID.</para>
     ///
     /// <para>**Response formats:** - Default: Full address object with all LINZ
     /// attributes - Simple (format=simple): Compact representation with essential
@@ -57,13 +57,14 @@ public interface IAddressService
     /// <summary>
     /// Retrieve a paginated list of addresses with optional filtering by location.
     ///
-    /// <para>**Filtering:** - `town_city`: Filter by town/city name (e.g., "Wellington")
-    /// - `suburb_locality`: Filter by suburb/locality (e.g., "Te Aro") - `road_name`:
-    /// Filter by road/street name (e.g., "Lambton Quay") - `bbox`: Bounding box
-    /// filter as comma-separated coordinates (min_lon,min_lat,max_lon,max_lat)</para>
+    /// <para>**Filtering:** - `town_city`: Filter by town/city name (e.g.,
+    /// "Wellington") - `suburb_locality`: Filter by suburb/locality (e.g., "Te Aro") -
+    /// `road_name`: Filter by road/street name (e.g., "Lambton Quay") - `bbox`:
+    /// Bounding box filter as comma-separated coordinates
+    /// (min_lon,min_lat,max_lon,max_lat)</para>
     ///
-    /// <para>**Pagination:** - `limit`: Maximum number of results (default: 100,
-    /// max: 1000) - `offset`: Number of results to skip</para>
+    /// <para>**Pagination:** - `limit`: Maximum number of results (default: 100, max:
+    /// 1000) - `offset`: Number of results to skip</para>
     ///
     /// <para>**Example:** `/v1/addresses?town_city=Wellington&limit=50`</para>
     /// </summary>
@@ -87,7 +88,7 @@ public interface IAddressServiceWithRawResponse
     IAddressServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     /// <summary>
-    /// Returns a raw HTTP response for `get /v1/addresses/{id}`, but is otherwise the
+    /// Returns a raw HTTP response for <c>get /v1/addresses/{id}</c>, but is otherwise the
     /// same as <see cref="IAddressService.Retrieve(AddressRetrieveParams, CancellationToken)"/>.
     /// </summary>
     Task<HttpResponse<AddressRetrieveResponse>> Retrieve(
@@ -103,7 +104,7 @@ public interface IAddressServiceWithRawResponse
     );
 
     /// <summary>
-    /// Returns a raw HTTP response for `get /v1/addresses`, but is otherwise the
+    /// Returns a raw HTTP response for <c>get /v1/addresses</c>, but is otherwise the
     /// same as <see cref="IAddressService.List(AddressListParams?, CancellationToken)"/>.
     /// </summary>
     Task<HttpResponse<List<AddressListResponse>>> List(

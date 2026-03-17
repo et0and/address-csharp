@@ -32,18 +32,18 @@ public interface ISearchService
     /// <summary>
     /// Search addresses using full-text search with intelligent query processing.
     ///
-    /// <para>**Search features:** - FTS5 full-text search with ranking by relevance
-    /// - Automatic abbreviation expansion (e.g., "st" → "street", "rd" → "road")
-    /// - Fuzzy matching fallback for typos and variations - Address component matching
-    /// (street, suburb, city, postcode)</para>
+    /// <para>**Search features:** - FTS5 full-text search with ranking by relevance -
+    /// Automatic abbreviation expansion (e.g., "st" → "street", "rd" → "road") - Fuzzy
+    /// matching fallback for typos and variations - Address component matching (street,
+    /// suburb, city, postcode)</para>
     ///
     /// <para>**Query parameters:** - `q`: Search query string (required) - `limit`:
     /// Maximum results (default: 100, max: 1000) - `format`: Response format - "full"
     /// or "simple"</para>
     ///
     /// <para>**Examples:** - `/v1/search?q=lambton+quay` - Search for addresses on
-    /// Lambton Quay - `/v1/search?q=123+quay+st+auckland` - Search for specific
-    /// address - `/v1/search?q=wlg&limit=20` - Abbreviation expansion</para>
+    /// Lambton Quay - `/v1/search?q=123+quay+st+auckland` - Search for specific address
+    /// - `/v1/search?q=wlg&limit=20` - Abbreviation expansion</para>
     /// </summary>
     Task<List<SearchQueryResponse>> Query(
         SearchQueryParams parameters,
@@ -65,7 +65,7 @@ public interface ISearchServiceWithRawResponse
     ISearchServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     /// <summary>
-    /// Returns a raw HTTP response for `get /v1/search`, but is otherwise the
+    /// Returns a raw HTTP response for <c>get /v1/search</c>, but is otherwise the
     /// same as <see cref="ISearchService.Query(SearchQueryParams, CancellationToken)"/>.
     /// </summary>
     Task<HttpResponse<List<SearchQueryResponse>>> Query(
