@@ -40,16 +40,6 @@ public sealed record class AddressRetrieveResponse : JsonModel
         init { this._rawData.Set("fullAddressNumber", value); }
     }
 
-    public required string FullAddressRoad
-    {
-        get
-        {
-            this._rawData.Freeze();
-            return this._rawData.GetNotNullClass<string>("fullAddressRoad");
-        }
-        init { this._rawData.Set("fullAddressRoad", value); }
-    }
-
     public required double Latitude
     {
         get
@@ -120,13 +110,22 @@ public sealed record class AddressRetrieveResponse : JsonModel
         init { this._rawData.Set("townCity", value); }
     }
 
+    public string? FullAddressRoad
+    {
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("fullAddressRoad");
+        }
+        init { this._rawData.Set("fullAddressRoad", value); }
+    }
+
     /// <inheritdoc/>
     public override void Validate()
     {
         _ = this.AddressID;
         _ = this.FullAddress;
         _ = this.FullAddressNumber;
-        _ = this.FullAddressRoad;
         _ = this.Latitude;
         _ = this.Longitude;
         _ = this.Postcode;
@@ -134,6 +133,7 @@ public sealed record class AddressRetrieveResponse : JsonModel
         _ = this.Suburb;
         _ = this.TerritorialAuthority;
         _ = this.TownCity;
+        _ = this.FullAddressRoad;
     }
 
     public AddressRetrieveResponse() { }

@@ -14,7 +14,6 @@ public class SearchQueryResponseTest : TestBase
             AddressID = 0,
             FullAddress = "fullAddress",
             FullAddressNumber = "fullAddressNumber",
-            FullAddressRoad = "fullAddressRoad",
             Latitude = 0,
             Longitude = 0,
             Postcode = "postcode",
@@ -22,12 +21,12 @@ public class SearchQueryResponseTest : TestBase
             Suburb = "suburb",
             TerritorialAuthority = "territorialAuthority",
             TownCity = "townCity",
+            FullAddressRoad = "fullAddressRoad",
         };
 
         double expectedAddressID = 0;
         string expectedFullAddress = "fullAddress";
         string expectedFullAddressNumber = "fullAddressNumber";
-        string expectedFullAddressRoad = "fullAddressRoad";
         double expectedLatitude = 0;
         double expectedLongitude = 0;
         string expectedPostcode = "postcode";
@@ -35,11 +34,11 @@ public class SearchQueryResponseTest : TestBase
         string expectedSuburb = "suburb";
         string expectedTerritorialAuthority = "territorialAuthority";
         string expectedTownCity = "townCity";
+        string expectedFullAddressRoad = "fullAddressRoad";
 
         Assert.Equal(expectedAddressID, model.AddressID);
         Assert.Equal(expectedFullAddress, model.FullAddress);
         Assert.Equal(expectedFullAddressNumber, model.FullAddressNumber);
-        Assert.Equal(expectedFullAddressRoad, model.FullAddressRoad);
         Assert.Equal(expectedLatitude, model.Latitude);
         Assert.Equal(expectedLongitude, model.Longitude);
         Assert.Equal(expectedPostcode, model.Postcode);
@@ -47,6 +46,7 @@ public class SearchQueryResponseTest : TestBase
         Assert.Equal(expectedSuburb, model.Suburb);
         Assert.Equal(expectedTerritorialAuthority, model.TerritorialAuthority);
         Assert.Equal(expectedTownCity, model.TownCity);
+        Assert.Equal(expectedFullAddressRoad, model.FullAddressRoad);
     }
 
     [Fact]
@@ -57,7 +57,6 @@ public class SearchQueryResponseTest : TestBase
             AddressID = 0,
             FullAddress = "fullAddress",
             FullAddressNumber = "fullAddressNumber",
-            FullAddressRoad = "fullAddressRoad",
             Latitude = 0,
             Longitude = 0,
             Postcode = "postcode",
@@ -65,6 +64,7 @@ public class SearchQueryResponseTest : TestBase
             Suburb = "suburb",
             TerritorialAuthority = "territorialAuthority",
             TownCity = "townCity",
+            FullAddressRoad = "fullAddressRoad",
         };
 
         string json = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
@@ -84,7 +84,6 @@ public class SearchQueryResponseTest : TestBase
             AddressID = 0,
             FullAddress = "fullAddress",
             FullAddressNumber = "fullAddressNumber",
-            FullAddressRoad = "fullAddressRoad",
             Latitude = 0,
             Longitude = 0,
             Postcode = "postcode",
@@ -92,6 +91,7 @@ public class SearchQueryResponseTest : TestBase
             Suburb = "suburb",
             TerritorialAuthority = "territorialAuthority",
             TownCity = "townCity",
+            FullAddressRoad = "fullAddressRoad",
         };
 
         string element = JsonSerializer.Serialize(model, ModelBase.SerializerOptions);
@@ -104,7 +104,6 @@ public class SearchQueryResponseTest : TestBase
         double expectedAddressID = 0;
         string expectedFullAddress = "fullAddress";
         string expectedFullAddressNumber = "fullAddressNumber";
-        string expectedFullAddressRoad = "fullAddressRoad";
         double expectedLatitude = 0;
         double expectedLongitude = 0;
         string expectedPostcode = "postcode";
@@ -112,11 +111,11 @@ public class SearchQueryResponseTest : TestBase
         string expectedSuburb = "suburb";
         string expectedTerritorialAuthority = "territorialAuthority";
         string expectedTownCity = "townCity";
+        string expectedFullAddressRoad = "fullAddressRoad";
 
         Assert.Equal(expectedAddressID, deserialized.AddressID);
         Assert.Equal(expectedFullAddress, deserialized.FullAddress);
         Assert.Equal(expectedFullAddressNumber, deserialized.FullAddressNumber);
-        Assert.Equal(expectedFullAddressRoad, deserialized.FullAddressRoad);
         Assert.Equal(expectedLatitude, deserialized.Latitude);
         Assert.Equal(expectedLongitude, deserialized.Longitude);
         Assert.Equal(expectedPostcode, deserialized.Postcode);
@@ -124,6 +123,7 @@ public class SearchQueryResponseTest : TestBase
         Assert.Equal(expectedSuburb, deserialized.Suburb);
         Assert.Equal(expectedTerritorialAuthority, deserialized.TerritorialAuthority);
         Assert.Equal(expectedTownCity, deserialized.TownCity);
+        Assert.Equal(expectedFullAddressRoad, deserialized.FullAddressRoad);
     }
 
     [Fact]
@@ -134,7 +134,48 @@ public class SearchQueryResponseTest : TestBase
             AddressID = 0,
             FullAddress = "fullAddress",
             FullAddressNumber = "fullAddressNumber",
+            Latitude = 0,
+            Longitude = 0,
+            Postcode = "postcode",
+            Region = "region",
+            Suburb = "suburb",
+            TerritorialAuthority = "territorialAuthority",
+            TownCity = "townCity",
             FullAddressRoad = "fullAddressRoad",
+        };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void OptionalNullablePropertiesUnsetAreNotSet_Works()
+    {
+        var model = new SearchQueryResponse
+        {
+            AddressID = 0,
+            FullAddress = "fullAddress",
+            FullAddressNumber = "fullAddressNumber",
+            Latitude = 0,
+            Longitude = 0,
+            Postcode = "postcode",
+            Region = "region",
+            Suburb = "suburb",
+            TerritorialAuthority = "territorialAuthority",
+            TownCity = "townCity",
+        };
+
+        Assert.Null(model.FullAddressRoad);
+        Assert.False(model.RawData.ContainsKey("fullAddressRoad"));
+    }
+
+    [Fact]
+    public void OptionalNullablePropertiesUnsetValidation_Works()
+    {
+        var model = new SearchQueryResponse
+        {
+            AddressID = 0,
+            FullAddress = "fullAddress",
+            FullAddressNumber = "fullAddressNumber",
             Latitude = 0,
             Longitude = 0,
             Postcode = "postcode",
@@ -148,14 +189,13 @@ public class SearchQueryResponseTest : TestBase
     }
 
     [Fact]
-    public void CopyConstructor_Works()
+    public void OptionalNullablePropertiesSetToNullAreSetToNull_Works()
     {
         var model = new SearchQueryResponse
         {
             AddressID = 0,
             FullAddress = "fullAddress",
             FullAddressNumber = "fullAddressNumber",
-            FullAddressRoad = "fullAddressRoad",
             Latitude = 0,
             Longitude = 0,
             Postcode = "postcode",
@@ -163,6 +203,52 @@ public class SearchQueryResponseTest : TestBase
             Suburb = "suburb",
             TerritorialAuthority = "territorialAuthority",
             TownCity = "townCity",
+
+            FullAddressRoad = null,
+        };
+
+        Assert.Null(model.FullAddressRoad);
+        Assert.True(model.RawData.ContainsKey("fullAddressRoad"));
+    }
+
+    [Fact]
+    public void OptionalNullablePropertiesSetToNullValidation_Works()
+    {
+        var model = new SearchQueryResponse
+        {
+            AddressID = 0,
+            FullAddress = "fullAddress",
+            FullAddressNumber = "fullAddressNumber",
+            Latitude = 0,
+            Longitude = 0,
+            Postcode = "postcode",
+            Region = "region",
+            Suburb = "suburb",
+            TerritorialAuthority = "territorialAuthority",
+            TownCity = "townCity",
+
+            FullAddressRoad = null,
+        };
+
+        model.Validate();
+    }
+
+    [Fact]
+    public void CopyConstructor_Works()
+    {
+        var model = new SearchQueryResponse
+        {
+            AddressID = 0,
+            FullAddress = "fullAddress",
+            FullAddressNumber = "fullAddressNumber",
+            Latitude = 0,
+            Longitude = 0,
+            Postcode = "postcode",
+            Region = "region",
+            Suburb = "suburb",
+            TerritorialAuthority = "territorialAuthority",
+            TownCity = "townCity",
+            FullAddressRoad = "fullAddressRoad",
         };
 
         SearchQueryResponse copied = new(model);
