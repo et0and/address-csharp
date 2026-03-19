@@ -60,26 +60,6 @@ public sealed record class AddressListResponse : JsonModel
         init { this._rawData.Set("longitude", value); }
     }
 
-    public required string Postcode
-    {
-        get
-        {
-            this._rawData.Freeze();
-            return this._rawData.GetNotNullClass<string>("postcode");
-        }
-        init { this._rawData.Set("postcode", value); }
-    }
-
-    public required string Region
-    {
-        get
-        {
-            this._rawData.Freeze();
-            return this._rawData.GetNotNullClass<string>("region");
-        }
-        init { this._rawData.Set("region", value); }
-    }
-
     public required string Suburb
     {
         get
@@ -120,6 +100,26 @@ public sealed record class AddressListResponse : JsonModel
         init { this._rawData.Set("fullAddressRoad", value); }
     }
 
+    public string? Postcode
+    {
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("postcode");
+        }
+        init { this._rawData.Set("postcode", value); }
+    }
+
+    public string? Region
+    {
+        get
+        {
+            this._rawData.Freeze();
+            return this._rawData.GetNullableClass<string>("region");
+        }
+        init { this._rawData.Set("region", value); }
+    }
+
     /// <inheritdoc/>
     public override void Validate()
     {
@@ -128,12 +128,12 @@ public sealed record class AddressListResponse : JsonModel
         _ = this.FullAddressNumber;
         _ = this.Latitude;
         _ = this.Longitude;
-        _ = this.Postcode;
-        _ = this.Region;
         _ = this.Suburb;
         _ = this.TerritorialAuthority;
         _ = this.TownCity;
         _ = this.FullAddressRoad;
+        _ = this.Postcode;
+        _ = this.Region;
     }
 
     public AddressListResponse() { }
