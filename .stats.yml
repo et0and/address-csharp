@@ -1,4 +1,4 @@
-configured_endpoints: 9
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/yufugumi%2Faddress-328dcd79fee7a34d28e8bf2ba23e93f43a9c318a4fd2c5e51ad93914658c8a2b.yml
-openapi_spec_hash: 19206fe7202ba616a23a8778dbfeb68d
+configured_endpoints: 8
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/yufugumi%2Faddress-9502cb49c2f72d366b689b7d2f825f0aa22dbb6d0b16f8214fd09f4ff4b9fe45.yml
+openapi_spec_hash: 9f7a32be9f56c032db2f05560c25b942
 config_hash: 0b0cfecdc5631709aeb5aa5103b0367c

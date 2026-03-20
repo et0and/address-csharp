@@ -3,7 +3,6 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Address.Core;
-using Address.Models;
 using Address.Services;
 
 namespace Address;
@@ -65,15 +64,6 @@ public interface IAddressClient : IDisposable
     IReverseService Reverse { get; }
 
     IMetaService Meta { get; }
-
-    /// <summary>
-    /// Returns basic API information including available endpoints and version details.
-    /// This is the entry point for discovering the API capabilities.
-    /// </summary>
-    Task<ClientGetApiInfoResponse> GetApiInfo(
-        ClientGetApiInfoParams? parameters = null,
-        CancellationToken cancellationToken = default
-    );
 }
 
 /// <summary>
@@ -118,15 +108,6 @@ public interface IAddressClientWithRawResponse : IDisposable
     IReverseServiceWithRawResponse Reverse { get; }
 
     IMetaServiceWithRawResponse Meta { get; }
-
-    /// <summary>
-    /// Returns a raw HTTP response for <c>get /</c>, but is otherwise the
-    /// same as <see cref="IAddressClient.GetApiInfo(ClientGetApiInfoParams?, CancellationToken)"/>.
-    /// </summary>
-    Task<HttpResponse<ClientGetApiInfoResponse>> GetApiInfo(
-        ClientGetApiInfoParams? parameters = null,
-        CancellationToken cancellationToken = default
-    );
 
     /// <summary>
     /// Sends a request to the Address REST API.
