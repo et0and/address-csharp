@@ -83,11 +83,13 @@ public class SearchQueryParamsTest : TestBase
 
         var url = parameters.Url(new() { ApiKey = "My API Key" });
 
-        Assert.Equal(
-            new Uri(
-                "https://address.tom.so/v1/search?q=q&bbox=bbox&format=format&limit=limit&polygon=polygon"
-            ),
-            url
+        Assert.True(
+            TestBase.UrisEqual(
+                new Uri(
+                    "https://address.tom.so/v1/search?q=q&bbox=bbox&format=format&limit=limit&polygon=polygon"
+                ),
+                url
+            )
         );
     }
 

@@ -104,11 +104,13 @@ public class AddressListParamsTest : TestBase
 
         var url = parameters.Url(new() { ApiKey = "My API Key" });
 
-        Assert.Equal(
-            new Uri(
-                "https://address.tom.so/v1/addresses?bbox=bbox&format=format&limit=limit&offset=offset&road_name=road_name&suburb_locality=suburb_locality&town_city=town_city"
-            ),
-            url
+        Assert.True(
+            TestBase.UrisEqual(
+                new Uri(
+                    "https://address.tom.so/v1/addresses?bbox=bbox&format=format&limit=limit&offset=offset&road_name=road_name&suburb_locality=suburb_locality&town_city=town_city"
+                ),
+                url
+            )
         );
     }
 

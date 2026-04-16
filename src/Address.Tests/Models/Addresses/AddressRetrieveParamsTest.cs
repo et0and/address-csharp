@@ -22,7 +22,7 @@ public class AddressRetrieveParamsTest : TestBase
 
         var url = parameters.Url(new() { ApiKey = "My API Key" });
 
-        Assert.Equal(new Uri("https://address.tom.so/v1/addresses/id"), url);
+        Assert.True(TestBase.UrisEqual(new Uri("https://address.tom.so/v1/addresses/id"), url));
     }
 
     [Fact]
