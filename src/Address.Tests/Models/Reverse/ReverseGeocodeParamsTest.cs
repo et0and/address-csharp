@@ -65,9 +65,11 @@ public class ReverseGeocodeParamsTest : TestBase
 
         var url = parameters.Url(new() { ApiKey = "My API Key" });
 
-        Assert.Equal(
-            new Uri("https://address.tom.so/v1/reverse?point=point&format=format&limit=limit"),
-            url
+        Assert.True(
+            TestBase.UrisEqual(
+                new Uri("https://address.tom.so/v1/reverse?point=point&format=format&limit=limit"),
+                url
+            )
         );
     }
 
