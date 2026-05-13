@@ -7,7 +7,7 @@ using Address.Models.Health;
 namespace Address.Services;
 
 /// <summary>
-/// Health, API information, and API key onboarding endpoints that do not require authentication.
+/// Health and API key onboarding endpoints that do not require authentication.
 ///
 /// <para>NOTE: Do not inherit from this type outside the SDK unless you're okay with
 /// breaking changes in non-major versions. We may add new methods in the future that
@@ -53,7 +53,7 @@ public interface IHealthServiceWithRawResponse
     IHealthServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     /// <summary>
-    /// Returns a raw HTTP response for `get /health`, but is otherwise the
+    /// Returns a raw HTTP response for <c>get /health</c>, but is otherwise the
     /// same as <see cref="IHealthService.Check(HealthCheckParams?, CancellationToken)"/>.
     /// </summary>
     Task<HttpResponse<HealthCheckResponse>> Check(

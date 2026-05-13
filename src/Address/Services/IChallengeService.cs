@@ -7,7 +7,7 @@ using Address.Models.Challenge;
 namespace Address.Services;
 
 /// <summary>
-/// Health, API information, and API key onboarding endpoints that do not require authentication.
+/// Health and API key onboarding endpoints that do not require authentication.
 ///
 /// <para>NOTE: Do not inherit from this type outside the SDK unless you're okay with
 /// breaking changes in non-major versions. We may add new methods in the future that
@@ -31,8 +31,8 @@ public interface IChallengeService
     /// <summary>
     /// Returns a cryptographic challenge for proof-of-work based API key registration.
     /// The challenge must be solved by finding a nonce that, when combined with the
-    /// challenge data, produces a hash below the difficulty threshold. Use this challenge
-    /// with the POST /request-key endpoint to obtain an API key.
+    /// challenge data, produces a hash below the difficulty threshold. Use this
+    /// challenge with the POST /request-key endpoint to obtain an API key.
     /// </summary>
     Task<ChallengeRetrieveResponse> Retrieve(
         ChallengeRetrieveParams? parameters = null,
@@ -54,7 +54,7 @@ public interface IChallengeServiceWithRawResponse
     IChallengeServiceWithRawResponse WithOptions(Func<ClientOptions, ClientOptions> modifier);
 
     /// <summary>
-    /// Returns a raw HTTP response for `get /challenge`, but is otherwise the
+    /// Returns a raw HTTP response for <c>get /challenge</c>, but is otherwise the
     /// same as <see cref="IChallengeService.Retrieve(ChallengeRetrieveParams?, CancellationToken)"/>.
     /// </summary>
     Task<HttpResponse<ChallengeRetrieveResponse>> Retrieve(

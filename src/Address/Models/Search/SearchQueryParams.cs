@@ -21,7 +21,7 @@ namespace Address.Models.Search;
 /// or "simple"</para>
 ///
 /// <para>**Examples:** - `/v1/search?q=lambton+quay` - Search for addresses on Lambton
-/// Quay - `/v1/search?q=123+quay+st+auckland` - Search for specific address - `/v1/search?q=wlg&limit=20`
+/// Quay - `/v1/search?q=123+quay+st+auckland` - Search for specific address - `/v1/search?q=wlg&amp;limit=20`
 /// - Abbreviation expansion</para>
 ///
 /// <para>NOTE: Do not inherit from this type outside the SDK unless you're okay with
@@ -141,7 +141,7 @@ public record class SearchQueryParams : ParamsBase
     }
 #pragma warning restore CS8618
 
-    /// <inheritdoc cref="IFromRawJson.FromRawUnchecked"/>
+    /// <inheritdoc cref="IFromRawJson{T}.FromRawUnchecked"/>
     public static SearchQueryParams FromRawUnchecked(
         IReadOnlyDictionary<string, JsonElement> rawHeaderData,
         IReadOnlyDictionary<string, JsonElement> rawQueryData

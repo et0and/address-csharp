@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Address.Core;
 using Address.Exceptions;
-using Address.Models;
 using Address.Services;
 
 namespace Address;
@@ -113,18 +112,6 @@ public sealed class AddressClient : IAddressClient
     public IMetaService Meta
     {
         get { return _meta.Value; }
-    }
-
-    /// <inheritdoc/>
-    public async Task<ClientGetApiInfoResponse> GetApiInfo(
-        ClientGetApiInfoParams? parameters = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        using var response = await this
-            .WithRawResponse.GetApiInfo(parameters, cancellationToken)
-            .ConfigureAwait(false);
-        return await response.Deserialize(cancellationToken).ConfigureAwait(false);
     }
 
     public void Dispose() => this.HttpClient.Dispose();
@@ -254,36 +241,6 @@ public sealed class AddressClientWithRawResponse : IAddressClientWithRawResponse
     public IMetaServiceWithRawResponse Meta
     {
         get { return _meta.Value; }
-    }
-
-    /// <inheritdoc/>
-    public async Task<HttpResponse<ClientGetApiInfoResponse>> GetApiInfo(
-        ClientGetApiInfoParams? parameters = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        parameters ??= new();
-
-        HttpRequest<ClientGetApiInfoParams> request = new()
-        {
-            Method = HttpMethod.Get,
-            Params = parameters,
-        };
-        var response = await this.Execute(request, cancellationToken).ConfigureAwait(false);
-        return new(
-            response,
-            async (token) =>
-            {
-                var deserializedResponse = await response
-                    .Deserialize<ClientGetApiInfoResponse>(token)
-                    .ConfigureAwait(false);
-                if (this.ResponseValidation)
-                {
-                    deserializedResponse.Validate();
-                }
-                return deserializedResponse;
-            }
-        );
     }
 
     /// <inheritdoc/>
